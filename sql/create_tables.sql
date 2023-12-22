@@ -4,11 +4,12 @@ DROP TABLE IF EXISTS "user", "sport", "workout", "activity", "step", "workout_ha
 
 CREATE TABLE "user" (
   "id" SERIAL PRIMARY KEY,
-  "firstname" TEXT,
-  "lastname" TEXT,
+  "username" TEXT NOT NULL UNIQUE,
+  "username_slug" TEXT,
   "email" TEXT,
   "password" TEXT,
-  "role" TEXT DEFAULT 'member',
+  "avatar" TEXT,
+  "isAdmin" BOOLEAN DEFAULT false,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );
