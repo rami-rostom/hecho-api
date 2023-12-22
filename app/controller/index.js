@@ -1,3 +1,4 @@
 const homeController = require('./home');
+const userController = require('./user');
 
-module.exports = { homeController };
+module.exports = { homeController, userController };
