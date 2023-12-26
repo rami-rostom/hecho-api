@@ -1,0 +1,5 @@
+### Render all steps
+GET http://localhost:3000/steps
+
+### Render one step
+GET http://localhost:3000/step/1

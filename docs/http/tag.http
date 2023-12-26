@@ -1,0 +1,5 @@
+### Render all tags
+GET http://localhost:3000/tags
+
+### Render one tag
+GET http://localhost:3000/tag/1

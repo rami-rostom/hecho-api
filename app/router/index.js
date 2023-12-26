@@ -5,7 +5,9 @@ const {
   homeController,
   userController,
   sportController,
-  workoutController
+  workoutController,
+  stepController,
+  tagController
 } = require('../controller');
 
 // HOME
@@ -22,5 +24,13 @@ router.get('/sport/:id', sportController.getOneSport);
 // WORKOUT
 router.get('/workouts', workoutController.getAllWorkouts);
 router.get('/workout/:id', workoutController.getOneWorkout);
+
+// STEP
+router.get('/steps', stepController.getAllSteps);
+router.get('/step/:id', stepController.getOneStep);
+
+// TAG
+router.get('/tags', tagController.getAllTags);
+router.get('/tag/:id', tagController.getOneTag);
 
 module.exports = router;
