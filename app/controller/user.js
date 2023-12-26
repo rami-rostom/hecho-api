@@ -10,6 +10,25 @@ const controller = {
         .json(users);
     } catch (error) {
       console.log(error);
+      res
+        .status(500)
+        .json(error.toString());
+    }
+  },
+
+  getOneUser: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const user = await User.findByPk(id);
+
+      res
+        .status(200)
+        .json(user);
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json(error.toString());
     }
   }
 };

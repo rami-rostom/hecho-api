@@ -9,7 +9,7 @@ CREATE TABLE "user" (
   "email" TEXT,
   "password" TEXT,
   "avatar" TEXT,
-  "isAdmin" BOOLEAN DEFAULT false,
+  "is_admin" BOOLEAN DEFAULT false,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );

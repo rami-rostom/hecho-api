@@ -2,7 +2,7 @@ BEGIN;
 
 SET NAMES 'utf8';
 
-INSERT INTO "user"("username", "username_slug", "email", "password", "avatar", "isAdmin") VALUES
+INSERT INTO "user"("username", "username_slug", "email", "password", "avatar", "is_admin") VALUES
 ('Ramirez', 'ramirez', 'ramirez@hecho.io', '$2b$10$YS/ySLwsWHcpzaGpGXD1lu8JbQKUa.DAw8O52boID9EwmdlNWoG3K', null, false);
 
 INSERT INTO "sport"("name") VALUES

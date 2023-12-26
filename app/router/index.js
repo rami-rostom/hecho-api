@@ -8,5 +8,6 @@ router.get('/', homeController.renderHomePage);
 
 // USER
 router.get('/users', userController.getAllUsers);
+router.get('/user/:id', userController.getOneUser);
 
 module.exports = router;
