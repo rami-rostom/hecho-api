@@ -9,46 +9,29 @@ INSERT INTO "sport"("name") VALUES
 ('running'),
 ('trail'),
 ('bike'),
-('swimming');
+('swimming'),
+('hiking');
 
-INSERT INTO "workout"("name", "distance", "duration", "user_id", "sport_id") VALUES
-('sortie longue', 13, 73, 1, 1),
-('7 x 1000m', 9, 54, 1, 1);
-
-INSERT INTO "activity"("name", "hecho", "date_scheduled", "date_accomplished", "sport_id", "workout_id", "user_id") VALUES
-('GM to NLS', true, '10/11/2023', '10/11/2023', 1, 1, 1),
-('Fractionné', false, '14/11/2023', null, 1, 2, 1);
+INSERT INTO "workout"("name", "date_scheduled", "date_accomplished", "distance", "duration", "pace", "hecho", "user_id", "sport_id") VALUES
+('Sortie longue', '2023/12/26', '2023/12/26', 12, 60, 5, true, 1, 1),
+('Fractionné', '2023/12/28', '2023/12/28', 12, 60, 5, true, 1, 1);
 
 INSERT INTO "step"("name", "distance", "duration") VALUES
-('run', 13, 73),
+('run', 12, 60),
 ('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4),
-('rest', 0.5, 5),
-('run', 1, 4);
+('rest', 0.5, 5);
+
+INSERT INTO "tag"("name") VALUES
+('footing'),
+('fractionné');
 
 INSERT INTO "workout_has_step"("workout_id", "step_id") VALUES
 (1, 1),
 (2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 6),
-(2, 7),
-(2, 8),
-(2, 9),
-(2, 10),
-(2, 11),
-(2, 12),
-(2, 13),
-(2, 14);
+(2, 3);
+
+INSERT INTO "workout_has_tag"("workout_id", "tag_id") VALUES
+(1, 1),
+(2, 2);
 
 COMMIT;
