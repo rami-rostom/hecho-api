@@ -1,0 +1,5 @@
+### Render all workouts
+GET http://localhost:3000/workouts
+
+### Render one workout
+GET http://localhost:3000/workout/1
