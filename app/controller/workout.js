@@ -38,18 +38,19 @@ const controller = {
 
   createOneWorkout: async (req, res) => {
     try {
-      const { name, sport_id, user_id } = req.body;
+      const { name, sport_id, user_id, hecho } = req.body;
 
-      if (!name || sport_id || user_id) {
-        return res.status(400).json({
-          'error': 'Missing body parameter(s)'
-        });
+      if (!name || !sport_id || !user_id || !hecho) {
+        return res
+          .status(400)
+          .json({ 'error': 'Missing body parameter(s)' });
       }
 
       const newWorkout = await Workout.create({
         name,
         sport_id,
-        user_id
+        user_id,
+        hecho
       });
 
       res
@@ -99,6 +100,30 @@ const controller = {
       res
         .status(200)
         .json(workout);
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json(error.toString());
+    }
+  },
+
+  deleteOneWorkout: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const workout = await Workout.findByPk(id);
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ 'error': 'Workout not found. Please verify the provided id.' });
+      }
+
+      await workout.destroy();
+
+      res
+        .status(200)
+        .json({ 'message': 'This workout was successfully deleted'} );
     } catch (error) {
       console.log(error);
       res

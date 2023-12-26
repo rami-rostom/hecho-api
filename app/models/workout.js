@@ -10,7 +10,7 @@ Workout.init({
   },
   date_scheduled: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: true
   },
   date_accomplished: {
     type: DataTypes.DATE,

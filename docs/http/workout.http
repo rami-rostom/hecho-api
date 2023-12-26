@@ -4,10 +4,24 @@ GET http://localhost:3000/workouts
 ### Render one workout
 GET http://localhost:3000/workout/2
 
-### Update an event
+### Update a workout
 PATCH http://localhost:3000/workout/2 HTTP/1.1
 content-type: application/json
 
 {
     "name": "Fractionned"
 }
+
+### Create a workout
+POST http://localhost:3000/workout HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Ptit footing",
+    "sport_id": 1,
+    "user_id": 1,
+    "hecho": "false"
+}
+
+### Delete one workout
+DELETE http://localhost:3000/workout/3
