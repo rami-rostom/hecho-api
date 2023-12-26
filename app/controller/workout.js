@@ -3,7 +3,9 @@ const { Workout } = require('../models/index');
 const controller = {
   getAllWorkouts: async (_, res) => {
     try {
-      const workouts = await Workout.findAll();
+      const workouts = await Workout.findAll({
+        include: ['steps', 'tags']
+      });
 
       res
         .status(200)
@@ -19,7 +21,9 @@ const controller = {
   getOneWorkout: async (req, res) => {
     try {
       const { id } = req.params;
-      const workout = await Workout.findByPk(id);
+      const workout = await Workout.findByPk(id, {
+        include: ['steps', 'tags']
+      });
 
       res
         .status(200)

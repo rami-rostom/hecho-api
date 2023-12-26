@@ -2,4 +2,4 @@
 GET http://localhost:3000/workouts
 
 ### Render one workout
-GET http://localhost:3000/workout/1
+GET http://localhost:3000/workout/2
