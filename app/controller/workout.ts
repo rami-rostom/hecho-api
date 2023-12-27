@@ -1,7 +1,33 @@
-const { Workout } = require('../models/index');
+import { Request, Response } from 'express';
+import { Workout } from '../models/index';
+
+type ErrorType = {
+  error?: string | null;
+  message?: string | null;
+}
+
+type WorkoutModel = {
+  id: number;
+  name: string;
+  date_scheduled: string;
+  date_accomplished: string;
+  distance: number;
+  duration: number;
+  pace: number;
+  hecho: boolean;
+  user_id: number;
+  sport_id: number;
+}
+
+type Workouts = {
+  workouts: WorkoutModel[];
+}
 
 const controller = {
-  getAllWorkouts: async (_, res) => {
+  getAllWorkouts: async (
+    _: Request,
+    res: Response<Workouts | ErrorType>
+    ) => {
     try {
       const workouts = await Workout.findAll({
         include: ['steps', 'tags']
@@ -18,12 +44,22 @@ const controller = {
     }
   },
 
-  getOneWorkout: async (req, res) => {
+  getOneWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<WorkoutModel | ErrorType>
+    ) => {
     try {
       const { id } = req.params;
+      
       const workout = await Workout.findByPk(id, {
         include: ['steps', 'tags']
       });
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ 'error': 'Workout not found. Please verify the provided id.' });
+      }
 
       res
         .status(200)
@@ -36,7 +72,10 @@ const controller = {
     }
   },
 
-  createOneWorkout: async (req, res) => {
+  createOneWorkout: async (
+    req: Request<WorkoutModel>,
+    res: Response<WorkoutModel | ErrorType>
+    ) => {
     try {
       const { name, sport_id, user_id, hecho } = req.body;
 
@@ -64,9 +103,13 @@ const controller = {
     }
   },
 
-  updateOneWorkout: async (req, res) => {
+  updateOneWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<WorkoutModel | ErrorType>
+    ) => {
     try {
       const { id } = req.params;
+
       const workout = await Workout.findByPk(id);
 
       if (!workout) {
@@ -108,7 +151,10 @@ const controller = {
     }
   },
 
-  deleteOneWorkout: async (req, res) => {
+  deleteOneWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<ErrorType>
+    ) => {
     try {
       const { id } = req.params;
       const workout = await Workout.findByPk(id);
@@ -133,4 +179,4 @@ const controller = {
   }
 };
 
-module.exports = controller;
+export default controller;

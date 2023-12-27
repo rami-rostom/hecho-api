@@ -1,14 +1,14 @@
-const { Router } = require('express');
+import { Router } from 'express';
 const router = Router();
 
-const {
+import {
   homeController,
   userController,
   sportController,
   workoutController,
   stepController,
   tagController
-} = require('../controller');
+} from '../controller';
 
 // HOME
 router.get('/', homeController.renderHomePage);
@@ -36,4 +36,4 @@ router.get('/step/:id', stepController.getOneStep);
 router.get('/tags', tagController.getAllTags);
 router.get('/tag/:id', tagController.getOneTag);
 
-module.exports = router;
+export default router;
