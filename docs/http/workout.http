@@ -9,7 +9,7 @@ PATCH http://localhost:3000/workout/2 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Fractionned"
+    "name": "Fractionné"
 }
 
 ### Create a workout
@@ -24,4 +24,4 @@ content-type: application/json
 }
 
 ### Delete one workout
-DELETE http://localhost:3000/workout/3
+DELETE http://localhost:3000/workout/4
