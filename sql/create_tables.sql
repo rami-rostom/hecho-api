@@ -41,6 +41,7 @@ CREATE TABLE "step" (
   "name" TEXT,
   "distance" NUMERIC,
   "duration" NUMERIC,
+  "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );
@@ -48,6 +49,7 @@ CREATE TABLE "step" (
 CREATE TABLE "tag" (
   "id" SERIAL PRIMARY KEY,
   "name" TEXT,
+  "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );

@@ -24,6 +24,26 @@ Workout.belongsTo(Sport, {
   foreignKey: 'sport_id' 
 });
 
+// A step has one user
+User.hasMany(Step, {
+  as: 'steps',
+  foreignKey: 'user_id'
+});
+Step.belongsTo(User, {
+  as: 'user',
+  foreignKey: 'user_id' 
+});
+
+// A tag has one user
+User.hasMany(Tag, {
+  as: 'tags',
+  foreignKey: 'user_id'
+});
+Tag.belongsTo(User, {
+  as: 'user',
+  foreignKey: 'user_id' 
+});
+
 
 // A workout can have several steps and a step can have several workouts
 Workout.belongsToMany(Step, {

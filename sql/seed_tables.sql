@@ -16,14 +16,14 @@ INSERT INTO "workout"("name", "date_scheduled", "date_accomplished", "distance",
 ('Sortie longue', '2023/12/26', '2023/12/26', 12, 60, 5, true, 1, 1),
 ('Fractionné', '2023/12/28', '2023/12/28', 12, 60, 5, true, 1, 1);
 
-INSERT INTO "step"("name", "distance", "duration") VALUES
-('run', 12, 60),
-('run', 1, 4),
-('rest', 0.5, 5);
+INSERT INTO "step"("name", "distance", "duration", "user_id") VALUES
+('run', 12, 60, 1),
+('run', 1, 4, 1),
+('rest', 0.5, 5, 1);
 
-INSERT INTO "tag"("name") VALUES
-('footing'),
-('fractionné');
+INSERT INTO "tag"("name", "user_id") VALUES
+('footing', 1),
+('fractionné', 1);
 
 INSERT INTO "workout_has_step"("workout_id", "step_id") VALUES
 (1, 1),
