@@ -1,4 +1,4 @@
-const User = require('./user');
+import User from './user';
 import Sport from './sport';
 import Workout from './workout';
 import Step from './step';
