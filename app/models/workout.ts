@@ -37,5 +37,5 @@ Workout.init({
   tableName: 'workout'
 });
 
-module.exports = Workout;
+export default Workout;
 

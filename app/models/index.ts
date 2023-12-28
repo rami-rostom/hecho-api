@@ -1,6 +1,6 @@
 const User = require('./user');
-const Sport = require('./sport');
-const Workout = require('./workout');
+import Sport from './sport';
+import Workout from './workout';
 const Step = require('./step');
 const Tag = require('./tag');
 
@@ -57,4 +57,4 @@ Tag.belongsToMany(Workout, {
   updatedAt: false
 });
 
-module.exports = { User, Sport, Workout, Step, Tag };
+export { User, Sport, Workout, Step, Tag };

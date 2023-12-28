@@ -13,4 +13,4 @@ Sport.init({
   tableName: 'sport'
 });
 
-module.exports = Sport;
+export default Sport;

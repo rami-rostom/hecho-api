@@ -1,7 +1,25 @@
-const { Sport } = require('../models/index');
+import { Request, Response } from 'express';
+import { Sport } from '../models/index';
+
+type ErrorType = {
+  error?: string | null;
+  message?: string | null;
+}
+
+type SportModel = {
+  id: number;
+  name: string;
+}
+
+type Sports = {
+  sports: SportModel[];
+}
 
 const controller = {
-  getAllSports: async (_, res) => {
+  getAllSports: async (
+    _: Request,
+    res: Response<Sports | ErrorType>
+    ) => {
     try {
       const sports = await Sport.findAll();
 
@@ -16,7 +34,10 @@ const controller = {
     }
   },
 
-  getOneSport: async (req, res) => {
+  getOneSport: async (
+    req: Request<{ id: number }>,
+    res: Response<SportModel | ErrorType>
+    ) => {
     try {
       const { id } = req.params;
       const sport = await Sport.findByPk(id);
@@ -33,4 +54,4 @@ const controller = {
   }
 };
 
-module.exports = controller;
+export default controller;
