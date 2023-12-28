@@ -2,4 +2,24 @@
 GET http://localhost:3000/tags
 
 ### Render one tag
-GET http://localhost:3000/tag/1
+GET http://localhost:3000/tag/3
+
+### Update a tag
+PATCH http://localhost:3000/tag/3 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Chillax"
+}
+
+### Create a tag
+POST http://localhost:3000/tag HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Chill",
+    "user_id": 1
+}
+
+### Delete one tag
+DELETE http://localhost:3000/tag/4

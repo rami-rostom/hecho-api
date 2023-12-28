@@ -6,7 +6,7 @@ type ErrorType = {
   message?: string | null;
 }
 
-type WorkoutModel = {
+type WorkoutType = {
   id: number;
   name: string;
   date_scheduled: string;
@@ -19,14 +19,14 @@ type WorkoutModel = {
   sport_id: number;
 }
 
-type Workouts = {
-  workouts: WorkoutModel[];
+type WorkoutsType = {
+  workouts: WorkoutType[];
 }
 
 const controller = {
   getAllWorkouts: async (
     _: Request,
-    res: Response<Workouts | ErrorType>
+    res: Response<WorkoutsType | ErrorType>
     ) => {
     try {
       const workouts = await Workout.findAll({
@@ -46,7 +46,7 @@ const controller = {
 
   getOneWorkout: async (
     req: Request<{ id: number }>,
-    res: Response<WorkoutModel | ErrorType>
+    res: Response<WorkoutType | ErrorType>
     ) => {
     try {
       const { id } = req.params;
@@ -73,8 +73,8 @@ const controller = {
   },
 
   createOneWorkout: async (
-    req: Request<WorkoutModel>,
-    res: Response<WorkoutModel | ErrorType>
+    req: Request<WorkoutType>,
+    res: Response<WorkoutType | ErrorType>
     ) => {
     try {
       const { name, sport_id, user_id, hecho } = req.body;
@@ -104,8 +104,8 @@ const controller = {
   },
 
   updateOneWorkout: async (
-    req: Request<{ id: number }>,
-    res: Response<WorkoutModel | ErrorType>
+    req: Request<WorkoutType>,
+    res: Response<WorkoutType | ErrorType>
     ) => {
     try {
       const { id } = req.params;
