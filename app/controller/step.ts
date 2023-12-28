@@ -1,7 +1,27 @@
-const { Step } = require('../models/index');
+import { Request, Response } from 'express';
+import { Step } from '../models/index';
+
+type ErrorType = {
+  error?: string | null;
+  message?: string | null;
+}
+
+type StepType = {
+  id: number;
+  name: string;
+  distance: string;
+  duration: string;
+}
+
+type StepsType = {
+  steps: StepType[];
+}
 
 const controller = {
-  getAllSteps: async (_, res) => {
+  getAllSteps: async (
+    _: Request,
+    res: Response<StepsType | ErrorType>
+    ) => {
     try {
       const steps = await Step.findAll();
 
@@ -16,7 +36,10 @@ const controller = {
     }
   },
 
-  getOneStep: async (req, res) => {
+  getOneStep: async (
+    req: Request<{ id: number }>,
+    res: Response<StepType | ErrorType>
+    ) => {
     try {
       const { id } = req.params;
       const step = await Step.findByPk(id);
@@ -33,4 +56,4 @@ const controller = {
   }
 };
 
-module.exports = controller;
+export default controller;

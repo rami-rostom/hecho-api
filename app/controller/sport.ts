@@ -6,19 +6,19 @@ type ErrorType = {
   message?: string | null;
 }
 
-type SportModel = {
+type SportType = {
   id: number;
   name: string;
 }
 
-type Sports = {
-  sports: SportModel[];
+type SportsType = {
+  sports: SportType[];
 }
 
 const controller = {
   getAllSports: async (
     _: Request,
-    res: Response<Sports | ErrorType>
+    res: Response<SportsType | ErrorType>
     ) => {
     try {
       const sports = await Sport.findAll();
@@ -36,7 +36,7 @@ const controller = {
 
   getOneSport: async (
     req: Request<{ id: number }>,
-    res: Response<SportModel | ErrorType>
+    res: Response<SportType | ErrorType>
     ) => {
     try {
       const { id } = req.params;

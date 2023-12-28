@@ -1,7 +1,7 @@
 const User = require('./user');
 import Sport from './sport';
 import Workout from './workout';
-const Step = require('./step');
+import Step from './step';
 const Tag = require('./tag');
 
 // A workout has one user

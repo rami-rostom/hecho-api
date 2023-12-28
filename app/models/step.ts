@@ -21,4 +21,4 @@ Step.init({
   tableName: 'step'
 });
 
-module.exports = Step;
+export default Step;
