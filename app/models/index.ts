@@ -2,7 +2,7 @@ const User = require('./user');
 import Sport from './sport';
 import Workout from './workout';
 import Step from './step';
-const Tag = require('./tag');
+import Tag from './tag';
 
 // A workout has one user
 User.hasMany(Workout, {

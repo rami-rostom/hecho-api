@@ -1,7 +1,25 @@
-const { Tag } = require('../models/index');
+import { Request, Response } from 'express';
+import { Tag } from '../models/index';
+
+type ErrorType = {
+  error?: string | null;
+  message?: string | null;
+}
+
+type TagType = {
+  id: number;
+  name: string;
+}
+
+type TagsType = {
+  tags: TagType[];
+}
 
 const controller = {
-  getAllTags: async (_, res) => {
+  getAllTags: async (
+    _: Request,
+    res: Response<TagsType | ErrorType>
+    ) => {
     try {
       const tags = await Tag.findAll();
 
@@ -16,7 +34,10 @@ const controller = {
     }
   },
 
-  getOneTag: async (req, res) => {
+  getOneTag: async (
+    req: Request<{ id: number }>,
+    res: Response<TagType | ErrorType>
+    ) => {
     try {
       const { id } = req.params;
       const tag = await Tag.findByPk(id);
@@ -33,4 +54,4 @@ const controller = {
   }
 };
 
-module.exports = controller;
+export default controller;

@@ -13,4 +13,4 @@ Tag.init({
   tableName: 'tag'
 });
 
-module.exports = Tag;
+export default Tag;
