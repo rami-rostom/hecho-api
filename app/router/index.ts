@@ -7,11 +7,16 @@ import {
   sportController,
   workoutController,
   stepController,
-  tagController
+  tagController,
+  authController
 } from '../controller';
 
 // HOME
 router.get('/', homeController.renderHomePage);
+
+// AUTHENTIFICATION
+router.post('/signup', authController.handleSignUp);
+// router.post('/signin', authController.handleSignIn);
 
 // USER
 router.get('/users', userController.getAllUsers);
