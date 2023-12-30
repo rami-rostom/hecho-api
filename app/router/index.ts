@@ -16,7 +16,7 @@ router.get('/', homeController.renderHomePage);
 
 // AUTHENTIFICATION
 router.post('/signup', authController.handleSignUp);
-// router.post('/signin', authController.handleSignIn);
+router.post('/signin', authController.handleSignIn);
 
 // USER
 router.get('/users', userController.getAllUsers);

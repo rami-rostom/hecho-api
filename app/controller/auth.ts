@@ -16,6 +16,17 @@ type RegisterType = {
   confirmation: string
 }
 
+type LoginType = {
+  email: string,
+  password: string
+}
+
+type BcryptType = {
+  userId: number,
+  token: string,
+  refreshToken: string
+}
+
 const controller = {
   handleSignUp: async (
     req: Request<RegisterType>,
@@ -94,44 +105,48 @@ const controller = {
       .json({ 'message': 'User successfully created, you can now login.' });
   },
 
-  // handleSignIn: async (req, res) => {
-  //   const { email, password } = req.body;
+  handleSignIn: async (
+    req: Request<LoginType>,
+    res: Response<BcryptType | ErrorType>
+    ) => {
+    const { email, password } = req.body;
 
-  //   if (!email || !password) {
-  //     return res
-  //       .status(400)
-  //       .json({ 'error': 'Missing parameter(s).' });
-  //   }
+    if (!email || !password) {
+      return res
+        .status(400)
+        .json({ 'error': 'Missing parameter(s).' });
+    }
 
-  //   const userFound = await User.findOne({
-  //     where: { email }
-  //   });
+    const userFound = await User.findOne({
+      where: { email }
+    });
 
-  //   if (!userFound) {
-  //     return res
-  //       .status(400)
-  //       .json({ 'error': 'This user doesn\'t exist.' });
-  //   }
+    if (!userFound) {
+      return res
+        .status(400)
+        .json({ 'error': 'This user doesn\'t exist.' });
+    }
 
-  //   // Function is launch if the password match with the decrypted password. It will also generate JWT tokens.
-  //   const verificationAuthBcrypt = (errBycrypt, resBycrypt) => {
-  //     if (resBycrypt) {
-  //       return res
-  //         .status(200)
-  //         .json({
-  //           'userId': userFound.id,
-  //           'token': token.generateAccessToken(userFound),
-  //           'refreshToken': token.generateRefreshToken(userFound)
-  //         });
-  //     } else {
-  //       return res
-  //         .status(400)
-  //         .json({ 'error': 'Please verify provided credentials.' });
-  //     }
-  //   };
+    // Function is launch if the password match with the decrypted password. It will also generate JWT tokens.
+    // TODO: change types for bcrypt
+    const verificationAuthBcrypt = (errBcrypt: any, resBcrypt: any) => {
+      if (resBcrypt) {
+        return res
+          .status(200)
+          .json({
+            'userId': userFound.id,
+            'token': token.generateAccessToken(userFound),
+            'refreshToken': token.generateRefreshToken(userFound)
+          });
+      } else {
+        return res
+          .status(400)
+          .json({ 'error': 'Please verify provided credentials.' });
+      }
+    };
 
-  //   bcrypt.compare(password, userFound.password, verificationAuthBcrypt);
-  // }
+    bcrypt.compare(password, userFound.password, verificationAuthBcrypt);
+  }
 };
 
 export default controller;
