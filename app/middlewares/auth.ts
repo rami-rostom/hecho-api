@@ -1,10 +1,20 @@
-// import { Request, Response } from 'express';
+// import { NextFunction, Request, Response } from 'express';
 // import jwt from 'jsonwebtoken';
 // import token from '../middlewares/jwt';
 
-// const ACCESS_JWT_SECRET = process.env.ACCESS_JWT_SECRET;
+// // TODO: tokens from dotenv file
+// const ACCESS_JWT_SECRET = 'hechoaccesstoken';
+// const REFRESH_JWT_SECRET = 'hechorefreshtoken';
 
-// const verifyToken = (req, res, next) => {
+// type UserDataType = {
+//   userData: string[]
+// }
+
+// const verifyToken = (
+//   req: Request<UserDataType>,
+//   res: Response,
+//   next: NextFunction
+// ) => {
 //   const accessToken = req.headers.authorization;
 
 //   if (!accessToken) {
@@ -26,11 +36,11 @@
 
 //       try {
 //         // Verification of the refresh token. If verified, new access token generated
-//         const decodedRefresh = jwt.verify(refreshToken, process.env.REFRESH_JWT_SECRET);
+//         const decodedRefresh = jwt.verify(refreshToken, REFRESH_JWT_SECRET);
 //         const newAccessToken = token.generateAccessToken(decodedRefresh.userId);
 
 //         // Verification of the access token. If verified, datas are added to userData and user can access to resources
-//         const decoded = jwt.verify(newAccessToken, process.env.ACCESS_JWT_SECRET);
+//         const decoded = jwt.verify(newAccessToken, ACCESS_JWT_SECRET);
 //         req.userData = decoded.userData;
 
 //         next();
@@ -47,4 +57,4 @@
 //   }
 // };
 
-// module.exports = verifyToken;
+// export default verifyToken;
