@@ -20,9 +20,16 @@ type UsersType = {
   users: UserType[];
 }
 
+type UserDataType = {
+  id: number;
+  userId: number;
+  iat: number;
+  exp: number;
+}
+
 const controller = {
   getAllUsers: async (
-    _: Request,
+    req: Request<UserDataType>,
     res: Response<UsersType | ErrorType>
     ) => {
     try {

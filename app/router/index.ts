@@ -1,6 +1,8 @@
 import { Router } from 'express';
 const router = Router();
 
+import verifyToken from '../middlewares/auth';
+
 import {
   homeController,
   userController,
@@ -29,22 +31,22 @@ router.get('/sport/:id', sportController.getOneSport);
 // WORKOUT
 router.get('/workouts', workoutController.getAllWorkouts);
 router.get('/workout/:id', workoutController.getOneWorkout);
-router.patch('/workout/:id', workoutController.updateOneWorkout);
-router.delete('/workout/:id', workoutController.deleteOneWorkout);
-router.post('/workout', workoutController.createOneWorkout);
+router.patch('/workout/:id', verifyToken, workoutController.updateOneWorkout);
+router.delete('/workout/:id', verifyToken, workoutController.deleteOneWorkout);
+router.post('/workout', verifyToken, workoutController.createOneWorkout);
 
 // STEP
 router.get('/steps', stepController.getAllSteps);
 router.get('/step/:id', stepController.getOneStep);
-router.patch('/step/:id', stepController.updateOneStep);
-router.delete('/step/:id', stepController.deleteOneStep);
-router.post('/step', stepController.createOneStep);
+router.patch('/step/:id', verifyToken, stepController.updateOneStep);
+router.delete('/step/:id', verifyToken, stepController.deleteOneStep);
+router.post('/step', verifyToken, stepController.createOneStep);
 
 // TAG
 router.get('/tags', tagController.getAllTags);
 router.get('/tag/:id', tagController.getOneTag);
-router.patch('/tag/:id', tagController.updateOneTag);
-router.delete('/tag/:id', tagController.deleteOneTag);
-router.post('/tag', tagController.createOneTag);
+router.patch('/tag/:id', verifyToken, tagController.updateOneTag);
+router.delete('/tag/:id', verifyToken, tagController.deleteOneTag);
+router.post('/tag', verifyToken, tagController.createOneTag);
 
 export default router;
