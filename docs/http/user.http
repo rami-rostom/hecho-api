@@ -1,7 +1,5 @@
 ### Render all users
 GET http://localhost:3000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcwNDgxMDY0OCwiZXhwIjoxNzA0ODEwNjY4fQ.X0XCtm2yU26-ldmQrWIMjCI-ohxdYc1cPZtusoGePSg
-refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcwNDgxMDMxMywiZXhwIjoxNzA3NDAyMzEzfQ.Rn_bMH25aBXRzXSdnd4NNRpNZOjLRDh9Pr3L7PGl1FU
 
 ### Render one user
 GET http://localhost:3000/user/1
