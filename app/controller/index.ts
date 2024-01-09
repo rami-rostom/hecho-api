@@ -4,6 +4,7 @@ import sportController from './sport';
 import workoutController from './workout';
 import stepController from './step';
 import tagController from './tag';
+import authController from './auth';
 
 export {
   homeController,
@@ -11,5 +12,6 @@ export {
   sportController,
   workoutController,
   stepController,
-  tagController
+  tagController,
+  authController
 };
