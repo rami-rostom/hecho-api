@@ -4,16 +4,12 @@ type UserDataType = {
   id: number
 }
 
-// TODO: secrets from dotenv file
-const ACCESS_JWT_SECRET = 'hechoaccesstoken';
-const REFRESH_JWT_SECRET = 'hechorefreshtoken';
-
 const token = {
   generateAccessToken: (userData: UserDataType) => {
     return jwt.sign({
       userId: userData.id
     },
-    ACCESS_JWT_SECRET,
+    String(process.env.ACCESS_JWT_SECRET),
     {
       expiresIn: '1h'
     });
@@ -23,7 +19,7 @@ const token = {
     return jwt.sign({
       userId: userData.id
     },
-    REFRESH_JWT_SECRET,
+    String(process.env.REFRESH_JWT_SECRET),
     {
       expiresIn: '30d'
     });
