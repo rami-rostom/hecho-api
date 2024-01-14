@@ -69,15 +69,16 @@ const controller = {
     res: Response<WorkoutType | ErrorType>
   ) => {
     try {
-      const { name, sport_id, user_id, hecho } = req.body;
+      const { name, sport_id, date_scheduled, user_id, hecho } = req.body;
 
-      if (!name || !sport_id || !user_id || !hecho) {
+      if (!name || !sport_id || !date_scheduled || !user_id || !hecho) {
         return res.status(400).json({ error: "Missing body parameter(s)" });
       }
 
       const newWorkout = await Workout.create({
         name,
         sport_id,
+        date_scheduled,
         user_id,
         hecho,
       });

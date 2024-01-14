@@ -19,6 +19,7 @@ content-type: application/json
 {
     "name": "Ptit footing",
     "sport_id": 1,
+    "date_scheduled": "2024-01-16",
     "user_id": 1,
     "hecho": "false"
 }
