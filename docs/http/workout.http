@@ -2,7 +2,7 @@
 GET http://localhost:3000/workouts
 
 ### Render one workout
-GET http://localhost:3000/workout/2
+GET http://localhost:3000/workout/12
 
 ### Update a workout
 PATCH http://localhost:3000/workout/3 HTTP/1.1
@@ -25,4 +25,4 @@ content-type: application/json
 }
 
 ### Delete one workout
-DELETE http://localhost:3000/workout/3
+DELETE http://localhost:3000/workout/5

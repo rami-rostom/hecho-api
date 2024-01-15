@@ -71,7 +71,7 @@ const controller = {
     try {
       const { name, sport_id, date_scheduled, user_id, hecho } = req.body;
 
-      if (!name || !sport_id || !date_scheduled || !user_id || !hecho) {
+      if (!name || !sport_id || !date_scheduled || !user_id) {
         return res.status(400).json({ error: "Missing body parameter(s)" });
       }
 
