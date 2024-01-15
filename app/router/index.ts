@@ -33,7 +33,7 @@ router.get('/workouts', workoutController.getAllWorkouts);
 router.get('/workout/:id', workoutController.getOneWorkout);
 router.patch('/workout/:id', verifyToken, workoutController.updateOneWorkout);
 router.delete('/workout/:id', verifyToken, workoutController.deleteOneWorkout);
-router.post('/workout', verifyToken, workoutController.createOneWorkout);
+router.post('/workout', workoutController.createOneWorkout);
 
 // STEP
 router.get('/steps', stepController.getAllSteps);
