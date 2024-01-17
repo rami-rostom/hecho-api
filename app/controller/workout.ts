@@ -48,7 +48,7 @@ const controller = {
       const { id } = req.params;
 
       const workout = await Workout.findByPk(id, {
-        include: ["steps", "tags"],
+        include: ["sport", "steps", "tags"],
       });
 
       if (!workout) {
