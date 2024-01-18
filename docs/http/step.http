@@ -17,9 +17,9 @@ POST http://localhost:3000/step HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Echauffement",
-    "distance": 2,
-    "duration": 15,
+    "name": "Retour au calme",
+    "distance": 1,
+    "duration": 10,
     "user_id": 1
 }
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Workout } from "../models/index";
+import { Step, Workout } from "../models/index";
 
 type ErrorType = {
   error?: string | null;
@@ -48,7 +48,16 @@ const controller = {
       const { id } = req.params;
 
       const workout = await Workout.findByPk(id, {
-        include: ["sport", "steps", "tags"],
+        // include: ["sport", "steps", "tags"],
+        include: [
+          "sport",
+          "tags",
+          {
+            model: Step,
+            as: 'steps',
+            order: [['createdAt', 'DESC']],
+          }
+        ]
       });
 
       if (!workout) {
@@ -174,6 +183,45 @@ const controller = {
       res.status(500).json(error.toString());
     }
   },
+
+  addStepToWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+      const { step_id } = req.body;
+
+      const workout = await Workout.findByPk(id);
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ error: "Workout not found. Please verify the provided id." });
+      }
+
+      // Use Sequelize method to get all steps of the workout
+      const workoutSteps = await workout.getSteps();
+
+      for (const workoutStep of workoutSteps) {
+        const isContained = workoutStep.id === step_id;
+
+        if (!isContained) {
+          // Use Sequelize method to add a new entry in "user_like_platform" table
+          await workout.addSteps(step_id);
+        } else {
+          // Use Sequelize method to remove an entry from "user_like_platform" table
+          await workout.removeSteps(step_id);
+        }
+      }
+
+      res.status(200).json({ message: "Workout's step updated." });
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  }
 };
 
 export default controller;

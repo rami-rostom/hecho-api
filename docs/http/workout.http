@@ -26,3 +26,11 @@ content-type: application/json
 
 ### Delete one workout
 DELETE http://localhost:3000/workout/13
+
+### Add/remove step to workout
+PATCH http://localhost:3000/workout/2/step HTTP/1.1
+content-type: application/json
+
+{
+    "step_id": 4
+}

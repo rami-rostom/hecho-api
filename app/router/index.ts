@@ -34,6 +34,7 @@ router.get('/workout/:id', workoutController.getOneWorkout);
 router.patch('/workout/:id', workoutController.updateOneWorkout);
 router.delete('/workout/:id', workoutController.deleteOneWorkout);
 router.post('/workout', workoutController.createOneWorkout);
+router.patch('/workout/:id/step', workoutController.addStepToWorkout);
 
 // STEP
 router.get('/steps', stepController.getAllSteps);
