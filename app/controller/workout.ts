@@ -48,7 +48,6 @@ const controller = {
       const { id } = req.params;
 
       const workout = await Workout.findByPk(id, {
-        // include: ["sport", "steps", "tags"],
         include: [
           "sport",
           "tags",
@@ -200,22 +199,37 @@ const controller = {
           .json({ error: "Workout not found. Please verify the provided id." });
       }
 
-      // Use Sequelize method to get all steps of the workout
-      const workoutSteps = await workout.getSteps();
+      // Use Sequelize method to add step to workout
+      await workout.addSteps(step_id);
 
-      for (const workoutStep of workoutSteps) {
-        const isContained = workoutStep.id === step_id;
+      res.status(200).json({ message: "Step added to workout." });
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  },
 
-        if (!isContained) {
-          // Use Sequelize method to add a new entry in "user_like_platform" table
-          await workout.addSteps(step_id);
-        } else {
-          // Use Sequelize method to remove an entry from "user_like_platform" table
-          await workout.removeSteps(step_id);
-        }
+  removeStepFromWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+      const { step_id } = req.body;
+
+      const workout = await Workout.findByPk(id);
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ error: "Workout not found. Please verify the provided id." });
       }
 
-      res.status(200).json({ message: "Workout's step updated." });
+      // Use Sequelize method to remove step from workout
+      await workout.removeSteps(step_id);
+
+      res.status(200).json({ message: "Step removed from workout." });
       
     } catch (error) {
       console.log(error);
