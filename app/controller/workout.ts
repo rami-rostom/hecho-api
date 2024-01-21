@@ -51,12 +51,9 @@ const controller = {
         include: [
           "sport",
           "tags",
-          {
-            model: Step,
-            as: 'steps',
-            order: [['createdAt', 'DESC']],
-          }
-        ]
+          "steps"
+        ],
+        order: [["steps", 'createdAt', 'ASC']],
       });
 
       if (!workout) {
