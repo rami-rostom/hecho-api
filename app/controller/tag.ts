@@ -42,6 +42,23 @@ const controller = {
     }
   },
 
+  getAllUserTags: async (
+    req: Request<{ id: number }>,
+    res: Response<TagsType | ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+      const tags = await Tag.findAll({
+        where: { user_id: id },
+      });
+
+      res.status(200).json(tags);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  },
+
   createOneTag: async (
     req: Request<TagType>,
     res: Response<TagType | ErrorType>

@@ -4,6 +4,9 @@ GET http://localhost:3000/tags
 ### Render one tag
 GET http://localhost:3000/tag/3
 
+### Render all user tags
+GET http://localhost:3000/tags/user/2
+
 ### Update a tag
 PATCH http://localhost:3000/tag/3 HTTP/1.1
 content-type: application/json

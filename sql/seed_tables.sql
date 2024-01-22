@@ -13,8 +13,8 @@ INSERT INTO "sport"("name") VALUES
 ('hiking');
 
 INSERT INTO "workout"("name", "date_scheduled", "date_accomplished", "distance", "duration", "pace", "hecho", "user_id", "sport_id") VALUES
-('Sortie longue', '2023/12/26', '2023/12/26', 12, 60, 5, true, 1, 1),
-('Fractionné', '2023/12/28', '2023/12/28', 12, 60, 5, true, 1, 1);
+('Sortie longue', '2023/12/26', '2023/12/26', null, null, null, true, 1, 1),
+('Fractionné', '2023/12/28', '2023/12/28', null, null, null, true, 1, 1);
 
 INSERT INTO "step"("name", "distance", "duration", "user_id") VALUES
 ('run', 12, 60, 1),

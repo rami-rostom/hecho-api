@@ -47,6 +47,7 @@ router.post('/step', stepController.createOneStep);
 // TAG
 router.get('/tags', tagController.getAllTags);
 router.get('/tag/:id', tagController.getOneTag);
+router.get('/tags/user/:id', tagController.getAllUserTags);
 router.patch('/tag/:id', tagController.updateOneTag);
 router.delete('/tag/:id', tagController.deleteOneTag);
 router.post('/tag', tagController.createOneTag);
