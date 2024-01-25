@@ -39,8 +39,8 @@ CREATE TABLE "workout" (
 CREATE TABLE "step" (
   "id" SERIAL PRIMARY KEY,
   "name" TEXT,
-  "distance" NUMERIC,
-  "duration" NUMERIC,
+  "distance" TEXT,
+  "duration" TEXT,
   "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ

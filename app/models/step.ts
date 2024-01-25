@@ -9,11 +9,11 @@ Step.init({
     allowNull: false
   },
   distance: {
-    type: DataTypes.DECIMAL,
+    type: DataTypes.TEXT,
     allowNull: true
   },
   duration: {
-    type: DataTypes.DECIMAL,
+    type: DataTypes.TEXT,
     allowNull: true
   }
 }, {

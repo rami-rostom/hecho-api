@@ -17,9 +17,9 @@ INSERT INTO "workout"("name", "date_scheduled", "date_accomplished", "distance",
 ('Fractionné', '2023/12/28', '2023/12/28', null, null, null, true, 1, 1);
 
 INSERT INTO "step"("name", "distance", "duration", "user_id") VALUES
-('run', 12, 60, 1),
-('run', 1, 4, 1),
-('rest', 0.5, 5, 1);
+('run', '12', '60', 1),
+('run', '1', '4', 1),
+('rest', '0.5', '5', 1);
 
 INSERT INTO "tag"("name", "user_id") VALUES
 ('footing', 1),

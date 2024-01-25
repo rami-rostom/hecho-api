@@ -51,7 +51,7 @@ const controller = {
     try {
       const { name, distance, duration, user_id } = req.body;
 
-      if (!name || !distance || !duration || !user_id) {
+      if ((!name || !distance || !user_id) && (!name || !duration || !user_id)) {
         return res.status(400).json({ error: "Missing body parameter(s)" });
       }
 

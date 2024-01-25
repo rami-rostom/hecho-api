@@ -18,8 +18,8 @@ content-type: application/json
 
 {
     "name": "Retour au calme",
-    "distance": 1,
-    "duration": 10,
+    "distance": null,
+    "duration": "60",
     "user_id": 1
 }
 
