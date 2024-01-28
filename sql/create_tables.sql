@@ -27,7 +27,7 @@ CREATE TABLE "workout" (
   "date_scheduled" DATE,
   "date_accomplished" DATE,
   "distance" NUMERIC,
-  "duration" NUMERIC,
+  "duration" TEXT,
   "pace" NUMERIC,
   "hecho" BOOLEAN DEFAULT false,
   "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
@@ -39,7 +39,7 @@ CREATE TABLE "workout" (
 CREATE TABLE "step" (
   "id" SERIAL PRIMARY KEY,
   "name" TEXT,
-  "distance" TEXT,
+  "distance" NUMERIC,
   "duration" TEXT,
   "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),

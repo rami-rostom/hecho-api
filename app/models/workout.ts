@@ -21,7 +21,7 @@ Workout.init({
     allowNull: true
   },
   duration: {
-    type: DataTypes.DECIMAL,
+    type: DataTypes.TEXT,
     allowNull: true
   },
   pace: {

@@ -12,7 +12,7 @@ type WorkoutType = {
   date_scheduled: string;
   date_accomplished: string;
   distance: number;
-  duration: number;
+  duration: string;
   pace: number;
   hecho: boolean;
   user_id: number;
@@ -227,6 +227,60 @@ const controller = {
       await workout.removeSteps(step_id);
 
       res.status(200).json({ message: "Step removed from workout." });
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  },
+
+  addTagToWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+      const { tag_id } = req.body;
+
+      const workout = await Workout.findByPk(id);
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ error: "Workout not found. Please verify the provided id." });
+      }
+
+      // Use Sequelize method to add tag to workout
+      await workout.addTags(tag_id);
+
+      res.status(200).json({ message: "Tag added to workout." });
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  },
+
+  removeTagFromWorkout: async (
+    req: Request<{ id: number }>,
+    res: Response<ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+      const { tag_id } = req.body;
+
+      const workout = await Workout.findByPk(id);
+
+      if (!workout) {
+        return res
+          .status(404)
+          .json({ error: "Workout not found. Please verify the provided id." });
+      }
+
+      // Use Sequelize method to remove tag from workout
+      await workout.removeTags(tag_id);
+
+      res.status(200).json({ message: "Tag removed from workout." });
       
     } catch (error) {
       console.log(error);

@@ -9,7 +9,7 @@ Step.init({
     allowNull: false
   },
   distance: {
-    type: DataTypes.TEXT,
+    type: DataTypes.DECIMAL,
     allowNull: true
   },
   duration: {

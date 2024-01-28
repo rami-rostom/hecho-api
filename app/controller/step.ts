@@ -9,7 +9,7 @@ type ErrorType = {
 type StepType = {
   id: number;
   name: string;
-  distance: string;
+  distance: number;
   duration: string;
 };
 

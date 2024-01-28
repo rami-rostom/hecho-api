@@ -2,7 +2,7 @@
 GET http://localhost:3000/workouts
 
 ### Render one workout
-GET http://localhost:3000/workout/3
+GET http://localhost:3000/workout/22
 
 ### Update a workout
 PATCH http://localhost:3000/workout/3 HTTP/1.1
@@ -41,4 +41,20 @@ content-type: application/json
 
 {
     "step_id": 4
+}
+
+### Add tag to workout
+PATCH http://localhost:3000/workout/22/tag/add HTTP/1.1
+content-type: application/json
+
+{
+    "tag_id": 3
+}
+
+### Remove tag from workout
+PATCH http://localhost:3000/workout/22/tag/remove HTTP/1.1
+content-type: application/json
+
+{
+    "tag_id": 3
 }
