@@ -24,10 +24,6 @@ Workout.init({
     type: DataTypes.TEXT,
     allowNull: true
   },
-  pace: {
-    type: DataTypes.DECIMAL,
-    allowNull: true
-  },
   hecho: {
     type: DataTypes.BOOLEAN,
     allowNull: false

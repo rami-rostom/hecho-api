@@ -28,7 +28,6 @@ CREATE TABLE "workout" (
   "date_accomplished" DATE,
   "distance" NUMERIC,
   "duration" TEXT,
-  "pace" NUMERIC,
   "hecho" BOOLEAN DEFAULT false,
   "user_id" INTEGER NOT NULL REFERENCES "user"("id") ON DELETE CASCADE,
   "sport_id" INTEGER NOT NULL REFERENCES "sport"("id") ON DELETE CASCADE,
