@@ -40,6 +40,25 @@ const controller = {
     }
   },
 
+  getAllUserWorkouts: async (
+    req: Request<{ id: number }>,
+    res: Response<WorkoutsType | ErrorType>
+  ) => {
+    try {
+      const { id } = req.params;
+
+      const workouts = await Workout.findAll({
+        include: ["steps", "tags"],
+        where: { user_id: id }
+      });
+
+      res.status(200).json(workouts);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error.toString());
+    }
+  },
+
   getOneWorkout: async (
     req: Request<{ id: number }>,
     res: Response<WorkoutType | ErrorType>

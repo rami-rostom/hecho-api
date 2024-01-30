@@ -1,8 +1,11 @@
 ### Render all workouts
 GET http://localhost:3000/workouts
 
+### Render all user workouts
+GET http://localhost:3000/workouts/user/1
+
 ### Render one workout
-GET http://localhost:3000/workout/22
+GET http://localhost:3000/workout/5
 
 ### Update a workout
 PATCH http://localhost:3000/workout/3 HTTP/1.1

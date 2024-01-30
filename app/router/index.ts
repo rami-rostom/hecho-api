@@ -30,6 +30,7 @@ router.get('/sport/:id', sportController.getOneSport);
 
 // WORKOUT
 router.get('/workouts', workoutController.getAllWorkouts);
+router.get('/workouts/user/:id', workoutController.getAllUserWorkouts);
 router.get('/workout/:id', workoutController.getOneWorkout);
 router.patch('/workout/:id', workoutController.updateOneWorkout);
 router.delete('/workout/:id', workoutController.deleteOneWorkout);
