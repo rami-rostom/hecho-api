@@ -23,6 +23,7 @@ type LoginType = {
 
 type BcryptType = {
   userId: number;
+  username: string;
   token: string;
   refreshToken: string;
 };
@@ -141,6 +142,7 @@ const controller = {
       if (resBcrypt) {
         return res.status(200).json({
           userId: userFound.id,
+          username: userFound.username,
           token: `Bearer ${token.generateAccessToken(userFound)}`,
           refreshToken: `Bearer ${token.generateRefreshToken(userFound)}`,
         });
