@@ -28,7 +28,7 @@ content-type: application/json
 }
 
 ### Delete one workout
-DELETE http://localhost:3000/workout/13
+DELETE http://localhost:3000/workout/3
 
 ### Add step to workout
 PATCH http://localhost:3000/workout/3/step/add HTTP/1.1

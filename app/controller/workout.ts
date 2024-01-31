@@ -48,7 +48,7 @@ const controller = {
       const { id } = req.params;
 
       const workouts = await Workout.findAll({
-        include: ["steps", "tags"],
+        include: ["steps", "tags", "sport"],
         where: { user_id: id }
       });
 
