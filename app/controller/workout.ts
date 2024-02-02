@@ -49,7 +49,8 @@ const controller = {
 
       const workouts = await Workout.findAll({
         include: ["steps", "tags", "sport"],
-        where: { user_id: id }
+        where: { user_id: id },
+        order: [['date_scheduled', 'DESC']],
       });
 
       res.status(200).json(workouts);
