@@ -5,6 +5,7 @@ import workoutController from './workout';
 import stepController from './step';
 import tagController from './tag';
 import authController from './auth';
+import goalController from './goal';
 
 export {
   homeController,
@@ -13,5 +14,6 @@ export {
   workoutController,
   stepController,
   tagController,
-  authController
+  authController,
+  goalController
 };

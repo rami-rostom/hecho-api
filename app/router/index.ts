@@ -10,7 +10,8 @@ import {
   workoutController,
   stepController,
   tagController,
-  authController
+  authController,
+  goalController
 } from '../controller';
 
 // HOME
@@ -54,5 +55,12 @@ router.get('/tags/user/:id', tagController.getAllUserTags);
 router.patch('/tag/:id', tagController.updateOneTag);
 router.delete('/tag/:id', tagController.deleteOneTag);
 router.post('/tag', tagController.createOneTag);
+
+// GOAL
+router.get('/goal/:id', goalController.getOneGoal);
+router.get('/goal/user/:id', goalController.getUserGoal);
+router.patch('/goal/:id', goalController.updateOneGoal);
+router.post('/goal', goalController.createOneGoal);
+router.delete('/goal/:id', goalController.deleteOneGoal);
 
 export default router;

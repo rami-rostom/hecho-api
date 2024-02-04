@@ -3,6 +3,7 @@ import Sport from './sport';
 import Workout from './workout';
 import Step from './step';
 import Tag from './tag';
+import Goal from './goal';
 
 // A workout has one user
 User.hasMany(Workout, {
@@ -44,6 +45,13 @@ Tag.belongsTo(User, {
   foreignKey: 'user_id' 
 });
 
+// A user has one goal
+User.hasOne(Goal, {
+  as: 'goal',
+  foreignKey: 'user_id'
+});
+Goal.belongsTo(User);
+
 
 // A workout can have several steps and a step can have several workouts
 Workout.belongsToMany(Step, {
@@ -77,4 +85,4 @@ Tag.belongsToMany(Workout, {
   updatedAt: false
 });
 
-export { User, Sport, Workout, Step, Tag };
+export { User, Sport, Workout, Step, Tag, Goal };

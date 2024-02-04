@@ -1,0 +1,27 @@
+### Render one goal
+GET http://localhost:3000/goal/1
+
+### Render user goal
+GET http://localhost:3000/goal/user/1
+
+### Update a goal
+PATCH http://localhost:3000/goal/1 HTTP/1.1
+content-type: application/json
+
+{
+    "duration": "04:00:00"
+}
+
+### Create a goal
+POST http://localhost:3000/goal HTTP/1.1
+content-type: application/json
+
+{
+    "activity": 3,
+    "distance": 40,
+    "duration": "00:00:00",
+    "user_id": 1
+}
+
+### Delete one goal
+DELETE http://localhost:3000/goal/1
