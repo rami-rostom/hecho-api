@@ -1,5 +1,5 @@
 ### Render one goal
-GET http://localhost:3000/goal/1
+GET http://localhost:3000/goal/2
 
 ### Render user goal
 GET http://localhost:3000/goal/user/1
