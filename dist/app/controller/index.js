@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.goalController = exports.authController = exports.tagController = exports.stepController = exports.workoutController = exports.sportController = exports.userController = exports.homeController = void 0;
+const home_1 = __importDefault(require("./home"));
+exports.homeController = home_1.default;
+const user_1 = __importDefault(require("./user"));
+exports.userController = user_1.default;
+const sport_1 = __importDefault(require("./sport"));
+exports.sportController = sport_1.default;
+const workout_1 = __importDefault(require("./workout"));
+exports.workoutController = workout_1.default;
+const step_1 = __importDefault(require("./step"));
+exports.stepController = step_1.default;
+const tag_1 = __importDefault(require("./tag"));
+exports.tagController = tag_1.default;
+const auth_1 = __importDefault(require("./auth"));
+exports.authController = auth_1.default;
+const goal_1 = __importDefault(require("./goal"));
+exports.goalController = goal_1.default;
