@@ -9,7 +9,7 @@
     "db:create": "psql -U hecho -d hecho -f sql/create_tables.sql",
     "db:seed": "psql -U hecho -d hecho -f sql/seed_tables.sql",
     "db:reset": "npm run db:create; npm run db:seed",
-    "vercel-build": "hello world"
+    "vercel-build": "echo hello"
   },
   "repository": {
     "type": "git",
