@@ -13,6 +13,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
 app.use(cors({
+    origin: 'http://localhost:4173',
+    credentials: true,
+}));
+app.use(cors({
+    origin: 'https://hecho-app.onrender.com',
+    credentials: true,
+}));
+app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true,
 }));
