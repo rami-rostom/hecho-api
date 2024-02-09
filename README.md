@@ -1,29 +1,59 @@
-# Hecho - API
+# :runner: Hecho - API :bicyclist:
 
-## Présentation
+**Hecho is a sport app designed to help you organize and plan your sport activities.**
 
-Hecho, une plateforme axée sur l'accomplissement d'activités physiques et sportives.
+## :bulb: Description
 
-Le plus important n'est pas la performance mais d'accomplir les activités programmées, que ce soit **HECHO** !
+Hecho API is a RESTful API designed to support the Hecho app. It provides endpoints for managing user, sport and activities datas.  
+Built with TypeScript, Node.js, Express, PostgreSQL qnd Sequelize, Hecho API ensures efficient and reliable data handling for the app.
 
-## Back-end
+<br />
 
-L'API est structurée pour respecter l'architecture REST.
+You can access the front repo [here](https://github.com/rami-rostom/hecho-front) ! :rocket:
 
-La stack de l'application côté back-end :
-- Nodejs
-- Express
-- Postgres SQL
-- Sequelize
+## :robot: Stack
 
-## Front-end
+- [TypeScript](https://www.typescriptlang.org/) : for type safety and enhanced development experience.
+- [Node.js](https://nodejs.org/en) : server-side JavaScript runtime environment.
+- [Express](https://expressjs.com/) : web application framework for Node.js, simplifying API development.
+- [PostgreSQL](https://www.postgresql.org/) : open-source relational database managment system.
+- [Sequelize](https://sequelize.org/) : promise-based ORM for Node.js, simplifying database interactions.
+- [JWT (JSON Web Tokens)](https://jwt.io) : secure abd stateless authentification mechanism for RESTful APIs.
 
-La partie front-end sera réalisée avec React.
+## :computer: Installation
 
-## Éléments de langage Hecho
+To run Hecho API locally, follow these steps :
 
-- **activité** = activité physique/sportive recensant les informations globales comme la date, le sport, la réalisation, etc.
-- **Hecho** = indiquer si une activité a été réalisé (hecho = "fait" en espagnol).
-- **sport** = type d'activité sportive. Exemple : running, trail, vélo, natation.
-- **entraînement** = description plus spécifique de l'activité (**dépendant d'une activité**). Recense les infos comme la durée et la distance.
-- **étape** = les étapes constituent le contenu de l'entraînement. Il peut y avoir une ou plusieurs étapes dans un entraînement. Exemple d'étapes dans le cas du running : échauffement, course, récupération, repos, etc. Une étape est consitutée d'une distance et d'une durée (**dépendant d'un entraînement**).
+1. Clone the repository to your local machine :
+
+```bash
+git clone git@github.com:rami-rostom/hecho-api.git
+```
+
+2. Navigate to the project directory :
+
+```bash
+cd /hecho-api
+```
+
+3. Install dependencies using your package manager (e.g., npm or yarn) :
+
+```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+4. Start the development server :
+
+```bash
+npm run dev
+```
+
+## :coffee: Author
+
+[@rami-rostom](https://github.com/rami-rostom)
