@@ -18,7 +18,7 @@ You can access the front repo [here](https://github.com/rami-rostom/hecho-front)
 - [Express](https://expressjs.com/) : web application framework for Node.js, simplifying API development.
 - [PostgreSQL](https://www.postgresql.org/) : open-source relational database managment system.
 - [Sequelize](https://sequelize.org/) : promise-based ORM for Node.js, simplifying database interactions.
-- [JWT (JSON Web Tokens)](https://jwt.io) : secure abd stateless authentification mechanism for RESTful APIs.
+- [JWT (JSON Web Tokens)](https://jwt.io) : secure and stateless authentification mechanism for RESTful APIs.
 
 ## :computer: Installation
 
