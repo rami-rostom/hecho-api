@@ -5,7 +5,7 @@
 ## :bulb: Description
 
 Hecho API is a RESTful API designed to support the Hecho app. It provides endpoints for managing user, sport and activities datas.  
-Built with TypeScript, Node.js, Express, PostgreSQL qnd Sequelize, Hecho API ensures efficient and reliable data handling for the app.
+Built with TypeScript, Node.js, Express, PostgreSQL and Sequelize, Hecho API ensures efficient and reliable data handling for the app.
 
 <br />
 
