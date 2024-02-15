@@ -1,12 +1,13 @@
-# :runner: Hecho - API :bicyclist:
+# Hecho - API
 
 **Hecho is a sport app designed to help you organize and plan your sport activities.**
 
 ## :bulb: Description
 
-Hecho API is a RESTful API designed to support the Hecho app. It provides endpoints for managing user, sport and activities datas.  
-Built with TypeScript, Node.js, Express, PostgreSQL and Sequelize, Hecho API ensures efficient and reliable data handling for the app.
+Hecho API is a RESTful API designed to support the Hecho app. It provides endpoints for managing user, sport and activities datas.
+<br />
 
+Built with TypeScript, Node.js, Express, PostgreSQL and Sequelize, Hecho API ensures efficient and reliable data handling for the app.
 <br />
 
 You can access the front repo [here](https://github.com/rami-rostom/hecho-front) ! :rocket:
@@ -33,7 +34,7 @@ git clone git@github.com:rami-rostom/hecho-api.git
 2. Navigate to the project directory :
 
 ```bash
-cd /hecho-api
+cd hecho-api/
 ```
 
 3. Install dependencies using your package manager (e.g., npm or yarn) :
